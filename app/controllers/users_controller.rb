@@ -11,11 +11,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @titre = @user.nom
   end
 
   private
   ## Strong Parameters 
   def user_params
-    params.require(:user).permit(:nom, :email)
+    params.require(:user).permit(:nom, :email, :password, :password_confirmation)
   end
 end
