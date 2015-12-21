@@ -1,13 +1,18 @@
 SampleApp::Application.routes.draw do
-  match '/contact', :to => 'pages#contact'
-  match '/about',   :to => 'pages#about'
-  match '/help',    :to => 'pages#help'
-  match '/inscription',    :to => 'pages#inscription'
-  match '/connexion',    :to => 'pages#connexion'
+  get 'users/new'
+
+  get '/contact', :to => 'pages#contact'
+  get '/contact', :to => 'pages#contact'
+  get '/about',   :to => 'pages#about'
+  get '/help',    :to => 'pages#help'
+  get '/inscription',    :to => 'users#new'
+  get '/connexion',    :to => 'pages#connexion'
   root :to => 'pages#home'
 end
 
 Rails.application.routes.draw do
+  get 'users/new'
+
   get 'pages/home'
 
   get 'pages/contact'
