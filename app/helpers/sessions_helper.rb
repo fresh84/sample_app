@@ -4,6 +4,7 @@ module SessionsHelper
     cookies.permanent.signed[:remember_token] = [user.id, user.salt]
     self.current_user = user
     session[:user_id] = user.id
+    session[:user_admin] = user.admin
   end
   
   def current_user=(user)
@@ -18,6 +19,7 @@ module SessionsHelper
   def sign_out
     cookies.delete(:remember_token)
     session[:user_id] = nil
+    session[:user_admin] = nil
     #self.current_user = nil
   end
 
@@ -27,6 +29,10 @@ module SessionsHelper
 
   def current_user?(user)
     user.id == session[:user_id]
+  end
+
+  def current_user_is_admin?()
+    session[:user_admin]
   end
 
   def redirect_back_or(default)
