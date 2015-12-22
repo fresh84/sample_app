@@ -16,8 +16,12 @@ class PagesController < ApplicationController
     @titre = "Aide"
   end
 
-  def connexion
+  def signin
     @titre = "Connexion"
+  end
+
+  def signout
+    @titre = "Déconnexion"
   end
 
   def inscription

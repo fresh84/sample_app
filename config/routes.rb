@@ -1,25 +1,30 @@
 SampleApp::Application.routes.draw do
   resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
 
-  get '/contact', :to => 'pages#contact'
+  get '/signin',  :to => 'sessions#new'
+  get '/signout', :to => 'sessions#destroy'
+
   get '/contact', :to => 'pages#contact'
   get '/about',   :to => 'pages#about'
   get '/help',    :to => 'pages#help'
-  get '/inscription',    :to => 'users#new'
-  get '/connexion',    :to => 'pages#connexion'
+  get '/signup',    :to => 'users#new'
+
   root :to => 'pages#home'
 end
 
-Rails.application.routes.draw do
-  get 'users/new'
-
-  get 'pages/home'
-
-  get 'pages/contact'
-
-  get 'pages/about'
-
-  get 'pages/help'
+#Rails.application.routes.draw do
+ # get 'sessions/new'#
+ #
+#  get 'users/new'#
+#
+#  get 'pages/home'#
+#
+#  get 'pages/contact'
+#
+#  get 'pages/about'
+#
+#  get 'pages/help'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -75,4 +80,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+  #end
