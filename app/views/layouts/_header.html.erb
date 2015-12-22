@@ -3,6 +3,11 @@
   <nav class="round">
     <ul>
       <li><%= link_to "Accueil", root_path %></li>
+	  <% if signed_in? %>
+      <li><%= link_to "Utilisateurs", users_path %></li>
+      <li><%= link_to "Profil", user_path(session[:user_id]) %></li>
+	  <li><%= link_to "Réglages", edit_user_path(session[:user_id]) %></li>
+   	  <% end %>
       <li><%= link_to "Aide", help_path %></li>
       <li><%= link_to "A propos", about_path %></li>
       <li><%= link_to "Inscription", signup_path %></li>

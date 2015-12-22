@@ -53,5 +53,7 @@ group :development do
   gem 'spring'
   gem 'rspec-rails'
   gem 'annotate_models'
+  gem 'faker', '0.3.1'
+  gem "will_paginate", "~> 3.0.4" 
 end
 
